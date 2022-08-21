@@ -3,6 +3,6 @@ const constants = require('../utils/constants')
 const routeHandler = require('./route.handler')
 const router = express.Router()
 
-router.all('/:apiName/:path', routeHandler.handleAllRoutes)
+router.all('/:api/:path', routeHandler.handleAllRoutes)
 
 module.exports = router
