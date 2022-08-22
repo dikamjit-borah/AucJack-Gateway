@@ -7,12 +7,12 @@ const routeRegistry = require('./route.registry');
 module.exports = {
     handleAllRoutes: async function(req, res){
         const {api, path} = {...req.params}
-        const endpoint = `${api}/${path}`
-        if(routeRegistry[api]){
+        const endpoint = `${api}${path}`
+        if(routeRegistry[endpoint]){
             basicUtils.logger(TAG, `Processing ${endpoint}`)
             axios({
                 method: req.method,
-                url: endpoint,
+                url: routeRegistry[endpoint].host + endpoint,
                 
             }).then((response)=>{
                 res.send(response.data)
