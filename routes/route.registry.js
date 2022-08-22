@@ -1,11 +1,11 @@
 module.exports = routeRegistry = {
         vendorpostItem: {
-            url: "/vendor/postItem",
+            endpoint: "/vendor/postItem",
             host: process.env.HOST_AUCJACK_BACKEND,
             port: process.env.PORT_AUCJACK_PORT
         },
         vendeeviewItems: {
-            url: "/vendee/viewItems",
+            endpoint: "/vendee/viewItems",
             host: process.env.HOST_AUCJACK_BACKEND,
             port: process.env.PORT_AUCJACK_PORT
         }

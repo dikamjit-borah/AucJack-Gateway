@@ -10,9 +10,18 @@ module.exports = {
         const endpoint = `${api}${path}`
         if(routeRegistry[endpoint]){
             basicUtils.logger(TAG, `Processing ${endpoint}`)
+            axios.interceptors.request.use(request => {
+                basicUtils.logger(TAG, `Requesting ${request.url}`)
+                return request
+              })
+              
+              axios.interceptors.response.use(response => {
+                basicUtils.logger(TAG, `Receiving ${response.data}`)
+                return response
+              })
             axios({
                 method: req.method,
-                url: routeRegistry[endpoint].host + endpoint,
+                url: routeRegistry[endpoint].host + routeRegistry[endpoint].endpoint ,
                 
             }).then((response)=>{
                 res.send(response.data)
