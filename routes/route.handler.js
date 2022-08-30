@@ -7,7 +7,6 @@ const routeRegistry = require('./route.registry');
 
 module.exports = {
     handleAllRoutes: async function (req, res) {
-        console.log(req.baseUrl);
         const { api, path } = { ...req.params }
         const endpoint = `${api}${path}`
         if (routeRegistry[endpoint]) {
